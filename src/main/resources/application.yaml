@@ -1,0 +1,40 @@
+
+spring.application.name: apigateway
+
+# VERTX CONFIG
+
+# 默认2 * CPU 数量 , 最大性能EVENTLOOP与WORKER线程数保持一致
+vertx.eventLoopPoolSize : 8
+vertx.blockingPoolSize : 40
+vertx.workerPoolSize : 200
+vertx.loopExecuteTime : 2
+vertx.prometheusPath: /metrics/vertx
+vertx.prometheusPort: 8082
+vertx.enablePrometheus: false
+
+
+# SPRING BOOT CONFIG
+server.port: 8761
+
+
+# API GATEWAY CONFIG
+api.gateway.port: 8080
+api.gateway.instances: 40
+api.gateway.clientPoolSize: 1000
+api.gateway.timeOut: 2000
+
+#  EUREKA CONFIG
+eureka.instance.preferIpAddress: true
+eureka.client.registerWithEureka: true
+eureka.client.fetchRegistry: true
+eureka.client.serviceUrl.defaultZone: http://localhost:8761/eureka/
+
+logging.level.org.springframework: WARN
+logging.level.com.korngao.springbootvertxapigateway: INFO
+logging.level.com.netflix: ERROR
+logging.level.org.apache: WARN
+logging.level.io.netty: ERROR
+logging.level.io.vertx: WARN
+
+
+
